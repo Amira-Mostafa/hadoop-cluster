@@ -105,9 +105,9 @@ hadoop-cluster/
 ```
 
 
-# 6. Checking failover
+# 5. Checking failover
 
-## 6.1 HDFS HA Test
+## 5.1 HDFS HA Test
   
 ```bash
 # Check initial status in any of the masters
@@ -121,7 +121,7 @@ hdfs haadmin -getAllServiceState
   
 ```
 
-## 6.2 YARN HA Test
+## 5.2 YARN HA Test
 ```bash
 # Check ResourceManager status in any of the masters
 yarn rmadmin -getAllServiceState 
@@ -139,7 +139,7 @@ yarn rmadmin -getAllServiceState
 yarn node -list
 ```
 
-## 6.3 Data Ingestion Test
+## 5.3 Data Ingestion Test
 
 ```bash
 # I already have prepared a folder /data for ingestion and mapreduce jobs
@@ -160,7 +160,7 @@ hdfs dfs -ls /ingest/
 hdfs dfs -cat /ingest/1
 ```
 
-## 6.4 MapReduce Test
+## 5.4 MapReduce Test
 
 ```bash
 
@@ -179,11 +179,3 @@ Found 2 items
 ```
 
 ---
-
-# 7. References
-
-1. Apache Hadoop Set up: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html
-
-2. HDFS High Availability: [https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html)
-
-3. YARN High Availability: [https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html)
