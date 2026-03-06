@@ -1,0 +1,98 @@
+version: "3.9"
+
+services:
+  master01:
+    # image: ubuntu:24.04
+    build: .
+    container_name: master01
+    hostname: master01
+    ports:
+      - "8481:8480"
+      - "9871:9870" #hadoop namenode web UI
+      - "8081:8088" #yarn resourcemanager web UI
+    # command: sleep infinity
+    command: /start-hadoop.sh
+    volumes:
+      - ./shared/hadoop:/opt/hadoop/etc/hadoop
+      - ./shared/master01:/opt/hadoop/dfs/name
+
+    networks:
+      - cluster-network
+
+  master02:
+    # image: ubuntu:24.04
+    build: .
+    container_name: master02
+    hostname: master02
+    ports:
+      - "8482:8480"
+      - "9872:9870"
+      - "8082:8088"
+    command: /start-hadoop.sh
+    volumes:
+      - ./shared/hadoop:/opt/hadoop/etc/hadoop
+      - ./shared/master02:/opt/hadoop/dfs/name
+
+    networks:
+      - cluster-network
+
+  worker01:
+    # image: ubuntu:24.04
+    build: .
+    container_name: worker01
+    hostname: worker01
+    ports:
+      - "8483:8480"
+      - "9873:9870"
+      - "8083:8088"
+    command: /start-hadoop.sh
+    volumes:
+      - ./shared/hadoop:/opt/hadoop/etc/hadoop
+      - ./shared/worker01/JN:/opt/hadoop/dfs/journal
+      - ./shared/worker01/data:/opt/hadoop/dfs/data
+      - ./shared/data:/data
+
+    networks:
+      - cluster-network
+
+  worker02:
+    # image: ubuntu:24.04
+    build: .
+    container_name: worker02
+    hostname: worker02
+    ports:
+      - "8484:8480"
+      - "9874:9870"
+      - "8084:8088"
+    command: /start-hadoop.sh
+    volumes:
+      - ./shared/hadoop:/opt/hadoop/etc/hadoop
+      - ./shared/worker02/JN:/opt/hadoop/dfs/journal
+      - ./shared/worker02/data:/opt/hadoop/dfs/data
+      - ./shared/data:/data
+
+    networks:
+      - cluster-network
+
+  worker03:
+    # image: ubuntu:24.04
+    build: .
+    container_name: worker03
+    hostname: worker03
+    ports:
+      - "8485:8480"
+      - "9875:9870"
+      - "8085:8088"
+    command: /start-hadoop.sh
+    volumes:
+      - ./shared/hadoop:/opt/hadoop/etc/hadoop
+      - ./shared/worker03/JN:/opt/hadoop/dfs/journal
+      - ./shared/worker03/data:/opt/hadoop/dfs/data
+      - ./shared/data:/data
+
+    networks:
+      - cluster-network
+
+networks:
+  cluster-network:
+    driver: bridge
