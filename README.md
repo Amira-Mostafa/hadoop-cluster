@@ -102,7 +102,7 @@ hadoop-cluster/
 │   ├── worker02/         # JournalNode data + data blocks
 │   ├── worker03/         # JournalNode data + data blocks
 │   └── data/             # Input/output data for ingestion
-
+```
 
 
 # 6. Checking failover
