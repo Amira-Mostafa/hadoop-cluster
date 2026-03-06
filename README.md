@@ -23,7 +23,7 @@ This document describes the implementation of a highly available Hadoop cluster 
 
 ## 2.1 Overview Diagram
 
-![Hadoop Cluster Architecture](/Capture.PNG)
+![Overview Diagram](/Capture.PNG)
 
 ---
 
@@ -103,7 +103,7 @@ hadoop-cluster/
 │   ├── worker03/         # JournalNode data + data blocks
 │   └── data/             # Input/output data for ingestion
 
----
+
 
 # 6. Checking failover
 
