@@ -23,7 +23,7 @@ This document describes the implementation of a highly available Hadoop cluster 
 
 ## 2.1 Overview Diagram
 
-![[Pasted image 20260306012955.png]]
+![Hadoop Cluster Architecture](/Capture.PNG)
 
 ---
 
